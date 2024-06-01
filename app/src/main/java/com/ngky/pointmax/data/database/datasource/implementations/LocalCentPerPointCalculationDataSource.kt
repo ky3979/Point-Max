@@ -3,33 +3,34 @@ package com.ngky.pointmax.data.database.datasource.implementations
 import androidx.annotation.WorkerThread
 import androidx.room.withTransaction
 import com.ngky.pointmax.data.database.AppDatabase
-import com.ngky.pointmax.data.database.datasource.interfaces.RedemptionEntryDataSource
-import com.ngky.pointmax.data.database.details.RedemptionEntryDetails
-import com.ngky.pointmax.data.database.entity.RedemptionEntryEntity
+import com.ngky.pointmax.data.database.datasource.interfaces.CentPerPointCalculationDataSource
+import com.ngky.pointmax.data.database.details.CentPerPointCalculationDetails
+import com.ngky.pointmax.data.database.entity.CentPerPointCalculationEntity
 import com.ngky.pointmax.data.database.entity.TransferPartnerCostEntity
 import com.ngky.pointmax.data.database.entity.TravelPortalCostEntity
 import com.ngky.pointmax.domain.model.TravelPortalCompany
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class LocalRedemptionEntryDataSource(
+class LocalCentPerPointCalculationDataSource @Inject constructor(
   private val appDatabase: AppDatabase
-) : RedemptionEntryDataSource {
+) : CentPerPointCalculationDataSource {
 
-  private val redemptionEntryDao = appDatabase.redemptionEntryDao()
+  private val centPerPointCalculationDao = appDatabase.centPerPointCalculationDao()
   private val travelPortalCostDao = appDatabase.travelPortalCostDao()
   private val transferPartnerCostDao = appDatabase.transferPartnerCostDao()
 
-  override fun getRedemptionEntryListFlow(): Flow<List<RedemptionEntryDetails>> {
-    return redemptionEntryDao.getDetailsListFlow()
+  override fun getCentPerPointCalculationListFlow(): Flow<List<CentPerPointCalculationDetails>> {
+    return centPerPointCalculationDao.getDetailsListFlow()
   }
 
   @WorkerThread
-  override suspend fun deleteRedemptionEntry(entryId: Long) {
-    redemptionEntryDao.deleteById(entryId)
+  override suspend fun deleteCentPerPointCalculationEntry(entryId: Long) {
+    centPerPointCalculationDao.deleteById(entryId)
   }
 
   @WorkerThread
-  override suspend fun saveRedemptionEntry(
+  override suspend fun saveCentPerPointCalculation(
     title: String,
     cashPrice: Double,
     travelPortalPoints: Int,
@@ -39,18 +40,18 @@ class LocalRedemptionEntryDataSource(
     transferPartnerBonus: Float
   ) {
     appDatabase.withTransaction {
-      val entryEntity = RedemptionEntryEntity(title = title, cashPrice = cashPrice)
-      val entryId = redemptionEntryDao.insert(entryEntity)
+      val entryEntity = CentPerPointCalculationEntity(title = title, cashPrice = cashPrice)
+      val entryId = centPerPointCalculationDao.insert(entryEntity)
 
       val portalCostEntity = TravelPortalCostEntity(
-        entryId = entryId,
+        calculationId = entryId,
         points = travelPortalPoints,
         company = travelPortalCompany
       )
       travelPortalCostDao.insert(portalCostEntity)
 
       val partnerCostEntity = TransferPartnerCostEntity(
-        entryId = entryId,
+        calculationId = entryId,
         points = transferPartnerPoints,
         taxesAndFees = transferPartnerTaxesAndFees,
         transferBonus = transferPartnerBonus

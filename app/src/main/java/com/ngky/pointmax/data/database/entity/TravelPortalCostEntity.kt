@@ -11,21 +11,21 @@ import com.ngky.pointmax.domain.model.TravelPortalCost
   tableName = "TravelPortalCost",
   foreignKeys = [
     ForeignKey(
-      entity = RedemptionEntryEntity::class,
+      entity = CentPerPointCalculationEntity::class,
       parentColumns = ["id"],
-      childColumns = ["entryId"],
+      childColumns = ["calculationId"],
       onDelete = ForeignKey.CASCADE
     )
   ],
   indices = [
     Index("id"),
-    Index("entryId")
+    Index("calculationId")
   ]
 )
 data class TravelPortalCostEntity(
   @PrimaryKey(autoGenerate = true)
   val id: Long = 0,
-  val entryId: Long,
+  val calculationId: Long,
   val points: Int,
   val company: TravelPortalCompany
 ) {

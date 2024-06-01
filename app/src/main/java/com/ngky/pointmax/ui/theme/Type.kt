@@ -17,9 +17,8 @@ data class ExtendedPointMaxTypography(
   val header3Bold: TextStyle,
   val body1Regular: TextStyle,
   val body2Regular: TextStyle,
-  val labelRegular: TextStyle,
-  val inputRegular: TextStyle,
-  val buttonMedium: TextStyle,
+  val label1Medium: TextStyle,
+  val label2Medium: TextStyle
 )
 
 private val provider = GoogleFont.Provider(
@@ -48,7 +47,7 @@ val pointMaxTypography = ExtendedPointMaxTypography(
   ),
   header3Bold = TextStyle(
     fontWeight = FontWeight.Bold,
-    fontSize = 20.sp,
+    fontSize = 16.sp,
     lineHeight = 24.sp,
   ),
   body1Regular = TextStyle(
@@ -56,7 +55,6 @@ val pointMaxTypography = ExtendedPointMaxTypography(
     fontWeight = FontWeight.Normal,
     fontSize = 16.sp,
     lineHeight = 24.sp,
-    letterSpacing = 0.15.sp,
   ),
   body2Regular = TextStyle(
     fontFamily = openSans,
@@ -64,22 +62,15 @@ val pointMaxTypography = ExtendedPointMaxTypography(
     fontSize = 14.sp,
     lineHeight = 20.sp,
   ),
-  labelRegular = TextStyle(
-    fontFamily = openSans,
-    fontWeight = FontWeight.Normal,
-    fontSize = 12.sp,
-    lineHeight = 16.sp,
-    letterSpacing = 0.1.sp,
-  ),
-  inputRegular = TextStyle(
-    fontWeight = FontWeight.Normal,
-    fontSize = 16.sp,
-    lineHeight = 24.sp,
-  ),
-  buttonMedium = TextStyle(
+  label1Medium = TextStyle(
     fontWeight = FontWeight.Medium,
     fontSize = 16.sp,
-    lineHeight = 24.sp,
+    lineHeight = 24.sp
+  ),
+  label2Medium = TextStyle(
+    fontWeight = FontWeight.Medium,
+    fontSize = 12.sp,
+    lineHeight = 18.sp
   )
 )
 

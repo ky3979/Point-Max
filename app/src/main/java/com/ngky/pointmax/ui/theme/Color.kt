@@ -12,41 +12,36 @@ private object PointMaxColors {
   val dimGray = Color(0xFF696969)
   val emeraldGreen = Color(0xFF50C878)
   val tomato = Color(0xFFFF6347)
-  val white = Color(0xFFFFFFFF)
+  val white = Color.White
+  val black = Color.Black
 }
 
 @Immutable
 data class ExtendedPointMaxColors(
-  val primaryButtonBackground: Color,
-  val secondaryButtonBackground: Color,
+  val backgroundPrimary: Color,
+  val backgroundSecondary: Color,
+  val backgroundStandard: Color,
 
-  val primaryButtonText: Color,
-  val secondaryButtonText: Color,
-
-  val primaryBackground: Color,
-  val iconBackground: Color,
-
-  val headerText: Color,
-  val primaryText: Color,
-  val secondaryText: Color,
+  val textPrimary: Color,
+  val textSecondary: Color,
+  val textStandard: Color,
+  val textLight: Color,
+  val textDark: Color,
 
   val success: Color,
   val error: Color
 )
 
 val pointMaxColorScheme = ExtendedPointMaxColors(
-  primaryButtonBackground = PointMaxColors.royalBlue,
-  secondaryButtonBackground = PointMaxColors.gold,
+  backgroundPrimary = PointMaxColors.royalBlue,
+  backgroundSecondary = PointMaxColors.gold,
+  backgroundStandard = PointMaxColors.lightGray,
 
-  primaryButtonText = PointMaxColors.white,
-  secondaryButtonText = PointMaxColors.dimGray,
-
-  primaryBackground = PointMaxColors.lightGray,
-  iconBackground = PointMaxColors.gold,
-
-  headerText = PointMaxColors.royalBlue,
-  primaryText = PointMaxColors.darkSlateGray,
-  secondaryText = PointMaxColors.dimGray,
+  textPrimary = PointMaxColors.darkSlateGray,
+  textSecondary = PointMaxColors.dimGray,
+  textStandard = PointMaxColors.royalBlue,
+  textLight = PointMaxColors.white,
+  textDark = PointMaxColors.black,
 
   success = PointMaxColors.emeraldGreen,
   error = PointMaxColors.tomato

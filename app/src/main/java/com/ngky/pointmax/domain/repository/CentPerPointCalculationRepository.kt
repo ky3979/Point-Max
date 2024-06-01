@@ -1,21 +1,21 @@
 package com.ngky.pointmax.domain.repository
 
 import androidx.annotation.WorkerThread
-import com.ngky.pointmax.domain.model.RedemptionEntry
+import com.ngky.pointmax.domain.model.CentPerPointCalculation
 import com.ngky.pointmax.domain.model.TravelPortalCompany
 import com.ngky.pointmax.domain.model.error.DataSourceError
 import kotlinx.coroutines.flow.Flow
 
-interface RedemptionEntryRepository {
-  fun getRedemptionEntryListFlow(): Flow<List<RedemptionEntry>>
+interface CentPerPointCalculationRepository {
+  fun getCalculationListFlow(): Flow<List<CentPerPointCalculation>>
 
   @WorkerThread
   @Throws(DataSourceError::class)
-  suspend fun deleteRedemptionEntry(entry: RedemptionEntry)
+  suspend fun deleteCalculation(entry: CentPerPointCalculation)
 
   @WorkerThread
   @Throws(DataSourceError::class)
-  suspend fun saveRedemptionEntry(
+  suspend fun saveCalculation(
     title: String,
     cashPrice: Double,
     travelPortalPoints: Int,

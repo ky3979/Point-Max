@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Point-Max</string>
+    <string name="app_name">PointMax</string>
+
+    <string name="cash_price_of_flight_or_hotel">Cash Price of Flight or Hotel</string>
+    <string name="travel_portal_points">Travel Portal Points</string>
+    <string name="card">Card</string>
+    <string name="transfer_partner_points">Transfer Partner Points</string>
+    <string name="cents_per_point_results">Cents per Point Results</string>
+    <string name="taxes_and_fees">Taxes and Fees</string>
+    <string name="transfer_bonus">Transfer Bonus</string>
+
+    <string name="travel_portal">Travel Portal</string>
+    <string name="transfer_partner">Transfer Partner</string>
+
+    <string name="cash_back">Cash Back</string>
+    <string name="points_to_transfer">Points to transfer</string>
+
+    <string name="american_express">Amex</string>
+    <string name="capital_one">Capital One</string>
+    <string name="chase">Chase</string>
+
+    <string name="point_format">%,d</string>
+    <string name="percent_format">%1$.0f%%</string>
+    <string name="dollar_sign">$</string>
+    <string name="cents_per_point">cents/pt</string>
+    <string name="cents_per_point_format">%1$.2f</string>
+    <string name="cents_per_point_unit_format">%1$.2f cents/pt</string>
 </resources>

@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0de388f116698d514dba785b4899a027",
+    "identityHash": "844150a074da1bc4f11f0734b992b367",
     "entities": [
       {
-        "tableName": "RedemptionEntry",
+        "tableName": "CentPerPointCalculation",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT NOT NULL, `cashPrice` REAL NOT NULL)",
         "fields": [
           {
@@ -35,20 +35,20 @@
         },
         "indices": [
           {
-            "name": "index_RedemptionEntry_id",
+            "name": "index_CentPerPointCalculation_id",
             "unique": false,
             "columnNames": [
               "id"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_RedemptionEntry_id` ON `${TABLE_NAME}` (`id`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_CentPerPointCalculation_id` ON `${TABLE_NAME}` (`id`)"
           }
         ],
         "foreignKeys": []
       },
       {
         "tableName": "TravelPortalCost",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entryId` INTEGER NOT NULL, `points` INTEGER NOT NULL, `company` TEXT NOT NULL, FOREIGN KEY(`entryId`) REFERENCES `RedemptionEntry`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `calculationId` INTEGER NOT NULL, `points` INTEGER NOT NULL, `company` TEXT NOT NULL, FOREIGN KEY(`calculationId`) REFERENCES `CentPerPointCalculation`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -57,8 +57,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "entryId",
-            "columnName": "entryId",
+            "fieldPath": "calculationId",
+            "columnName": "calculationId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -92,22 +92,22 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_TravelPortalCost_id` ON `${TABLE_NAME}` (`id`)"
           },
           {
-            "name": "index_TravelPortalCost_entryId",
+            "name": "index_TravelPortalCost_calculationId",
             "unique": false,
             "columnNames": [
-              "entryId"
+              "calculationId"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_TravelPortalCost_entryId` ON `${TABLE_NAME}` (`entryId`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_TravelPortalCost_calculationId` ON `${TABLE_NAME}` (`calculationId`)"
           }
         ],
         "foreignKeys": [
           {
-            "table": "RedemptionEntry",
+            "table": "CentPerPointCalculation",
             "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
-              "entryId"
+              "calculationId"
             ],
             "referencedColumns": [
               "id"
@@ -117,7 +117,7 @@
       },
       {
         "tableName": "TransferPartnerCost",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `entryId` INTEGER NOT NULL, `points` INTEGER NOT NULL, `taxesAndFees` REAL NOT NULL, `transferBonus` REAL NOT NULL, FOREIGN KEY(`entryId`) REFERENCES `RedemptionEntry`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `calculationId` INTEGER NOT NULL, `points` INTEGER NOT NULL, `taxesAndFees` REAL NOT NULL, `transferBonus` REAL NOT NULL, FOREIGN KEY(`calculationId`) REFERENCES `CentPerPointCalculation`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "id",
@@ -126,8 +126,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "entryId",
-            "columnName": "entryId",
+            "fieldPath": "calculationId",
+            "columnName": "calculationId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -167,22 +167,22 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_TransferPartnerCost_id` ON `${TABLE_NAME}` (`id`)"
           },
           {
-            "name": "index_TransferPartnerCost_entryId",
+            "name": "index_TransferPartnerCost_calculationId",
             "unique": false,
             "columnNames": [
-              "entryId"
+              "calculationId"
             ],
             "orders": [],
-            "createSql": "CREATE INDEX IF NOT EXISTS `index_TransferPartnerCost_entryId` ON `${TABLE_NAME}` (`entryId`)"
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_TransferPartnerCost_calculationId` ON `${TABLE_NAME}` (`calculationId`)"
           }
         ],
         "foreignKeys": [
           {
-            "table": "RedemptionEntry",
+            "table": "CentPerPointCalculation",
             "onDelete": "CASCADE",
             "onUpdate": "NO ACTION",
             "columns": [
-              "entryId"
+              "calculationId"
             ],
             "referencedColumns": [
               "id"
@@ -194,7 +194,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0de388f116698d514dba785b4899a027')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '844150a074da1bc4f11f0734b992b367')"
     ]
   }
 }

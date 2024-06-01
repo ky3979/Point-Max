@@ -1,6 +1,6 @@
 package com.ngky.pointmax.domain.model
 
-data class RedemptionEntry(
+data class CentPerPointCalculation(
   val id: Long = 0,
   val title: String,
   val cashPrice: Double,

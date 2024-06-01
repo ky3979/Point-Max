@@ -5,10 +5,10 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
-  tableName = "RedemptionEntry",
+  tableName = "CentPerPointCalculation",
   indices = [Index("id")]
 )
-data class RedemptionEntryEntity(
+data class CentPerPointCalculationEntity(
   @PrimaryKey(autoGenerate = true)
   val id: Long = 0,
   val title: String,

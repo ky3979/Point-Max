@@ -1,10 +1,11 @@
 package com.ngky.pointmax.domain.usecase
 
 import com.ngky.pointmax.domain.model.TravelPortalCompany
-import com.ngky.pointmax.domain.repository.RedemptionEntryRepository
+import com.ngky.pointmax.domain.repository.CentPerPointCalculationRepository
+import javax.inject.Inject
 
-class SaveRedemptionEntryUseCase(
-  private val redemptionEntryRepository: RedemptionEntryRepository
+class SaveCentPerPointCalculationUseCase @Inject constructor(
+  private val centPerPointCalculationRepository: CentPerPointCalculationRepository
 ) {
   suspend operator fun invoke(
     title: String,
@@ -15,7 +16,7 @@ class SaveRedemptionEntryUseCase(
     transferPartnerTaxesAndFees: Double,
     transferPartnerBonus: Float
   ) {
-    redemptionEntryRepository.saveRedemptionEntry(
+    centPerPointCalculationRepository.saveCalculation(
       title = title,
       cashPrice = cashPrice,
       travelPortalPoints = travelPortalPoints,

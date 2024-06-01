@@ -2,33 +2,33 @@ package com.ngky.pointmax.data.database.details
 
 import androidx.room.Embedded
 import androidx.room.Relation
-import com.ngky.pointmax.data.database.entity.RedemptionEntryEntity
+import com.ngky.pointmax.data.database.entity.CentPerPointCalculationEntity
 import com.ngky.pointmax.data.database.entity.TransferPartnerCostEntity
 import com.ngky.pointmax.data.database.entity.TravelPortalCostEntity
-import com.ngky.pointmax.domain.model.RedemptionEntry
+import com.ngky.pointmax.domain.model.CentPerPointCalculation
 
-data class RedemptionEntryDetails(
+data class CentPerPointCalculationDetails(
   @Embedded
-  val entry: RedemptionEntryEntity,
+  val calculation: CentPerPointCalculationEntity,
 
   @Relation(
     entity = TravelPortalCostEntity::class,
     parentColumn = "id",
-    entityColumn = "entryId"
+    entityColumn = "calculationId"
   )
   val portalCost: TravelPortalCostEntity,
 
   @Relation(
     entity = TransferPartnerCostEntity::class,
     parentColumn = "id",
-    entityColumn = "entryId"
+    entityColumn = "calculationId"
   )
   val partnerCost: TransferPartnerCostEntity,
 ) {
-  fun toDomainModel() = RedemptionEntry(
-    id = entry.id,
-    title = entry.title,
-    cashPrice = entry.cashPrice,
+  fun toDomainModel() = CentPerPointCalculation(
+    id = calculation.id,
+    title = calculation.title,
+    cashPrice = calculation.cashPrice,
     travelPortalCost = portalCost.toDomainModel(),
     transferPartnerCost = partnerCost.toDomainModel()
   )

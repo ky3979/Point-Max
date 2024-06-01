@@ -1,18 +1,18 @@
 package com.ngky.pointmax.data.database.datasource.interfaces
 
 import androidx.annotation.WorkerThread
-import com.ngky.pointmax.data.database.details.RedemptionEntryDetails
+import com.ngky.pointmax.data.database.details.CentPerPointCalculationDetails
 import com.ngky.pointmax.domain.model.TravelPortalCompany
 import kotlinx.coroutines.flow.Flow
 
-interface RedemptionEntryDataSource {
-  fun getRedemptionEntryListFlow(): Flow<List<RedemptionEntryDetails>>
+interface CentPerPointCalculationDataSource {
+  fun getCentPerPointCalculationListFlow(): Flow<List<CentPerPointCalculationDetails>>
 
   @WorkerThread
-  suspend fun deleteRedemptionEntry(entryId: Long)
+  suspend fun deleteCentPerPointCalculationEntry(entryId: Long)
 
   @WorkerThread
-  suspend fun saveRedemptionEntry(
+  suspend fun saveCentPerPointCalculation(
     title: String,
     cashPrice: Double,
     travelPortalPoints: Int,
