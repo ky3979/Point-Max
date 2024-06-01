@@ -3,22 +3,17 @@ package com.ngky.pointmax.ui.feature.section
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.ngky.pointmax.R
 import com.ngky.pointmax.ext.PointMaxPreview
 import com.ngky.pointmax.ui.theme.PointMaxTheme
-
-private val CentPerPointTypePadding = 52.dp
 
 @Composable
 fun CentsPerPointResults(
@@ -41,54 +36,60 @@ fun CentsPerPointResults(
       pointMaxColors.textStandard
     }
   }
-
-  Row(
+  
+  Column(
     modifier = modifier,
-    horizontalArrangement = Arrangement.SpaceBetween
+    verticalArrangement = Arrangement.spacedBy(PointMaxTheme.dimensions.padding5)
   ) {
-    Column(
-      horizontalAlignment = Alignment.End
+    Row(
+      horizontalArrangement = Arrangement.SpaceBetween,
+      modifier = Modifier.fillMaxWidth()
     ) {
       Text(
-        text = stringResource(id = R.string.cents_per_point_format, travelPortalCentsPerPoint),
-        style = PointMaxTheme.typography.header1Bold,
-        color =  travelPortalColor
+        text = stringResource(id = R.string.travel_portal),
+        style = PointMaxTheme.typography.header3Bold,
+        color = travelPortalColor,
+        modifier = Modifier.padding(top = PointMaxTheme.dimensions.padding0)
       )
-      Text(
-        text = stringResource(id = R.string.cents_per_point),
-        style = PointMaxTheme.typography.body2Regular,
-        color = travelPortalColor
-      )
-      Spacer(modifier = Modifier.height(CentPerPointTypePadding))
-      Row {
-        Spacer(modifier = Modifier.width(PointMaxTheme.dimensions.padding5))
+      Column(
+        horizontalAlignment = Alignment.End
+      ) {
         Text(
-          text = stringResource(id = R.string.travel_portal),
-          style = PointMaxTheme.typography.header3Bold,
+          text = stringResource(id = R.string.cents_per_point_format, travelPortalCentsPerPoint),
+          style = PointMaxTheme.typography.header1Bold,
+          color =  travelPortalColor
+        )
+        Text(
+          text = stringResource(id = R.string.cents_per_point),
+          style = PointMaxTheme.typography.body2Regular,
           color = travelPortalColor
         )
       }
     }
-    Column(
-      horizontalAlignment = Alignment.End,
-      modifier = Modifier.padding(end = PointMaxTheme.dimensions.padding5)
+    Row(
+      horizontalArrangement = Arrangement.SpaceBetween,
+      modifier = Modifier.fillMaxWidth()
     ) {
-      Text(
-        text = stringResource(id = R.string.cents_per_point_format, transferPartnerCentsPerPoint),
-        style = PointMaxTheme.typography.header1Bold,
-        color =  transferPartnerColor
-      )
-      Text(
-        text = stringResource(id = R.string.cents_per_point),
-        style = PointMaxTheme.typography.body2Regular,
-        color = transferPartnerColor
-      )
-      Spacer(modifier = Modifier.height(CentPerPointTypePadding))
       Text(
         text = stringResource(id = R.string.transfer_partner),
         style = PointMaxTheme.typography.header3Bold,
         color = transferPartnerColor,
+        modifier = Modifier.padding(top = PointMaxTheme.dimensions.padding0)
       )
+      Column(
+        horizontalAlignment = Alignment.End
+      ) {
+        Text(
+          text = stringResource(id = R.string.cents_per_point_format, transferPartnerCentsPerPoint),
+          style = PointMaxTheme.typography.header1Bold,
+          color =  transferPartnerColor
+        )
+        Text(
+          text = stringResource(id = R.string.cents_per_point),
+          style = PointMaxTheme.typography.body2Regular,
+          color = transferPartnerColor
+        )
+      }
     }
   }
 }

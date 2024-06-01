@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 
 private object PointMaxColors {
   val royalBlue = Color(0xFF4169E1)
+  val lightBlue = Color(0xFFB1C1EB)
   val gold = Color(0xFFFFD700)
   val lightGray = Color(0xFFF5F5F5)
   val darkSlateGray = Color(0xFF2F4F4F)
@@ -21,6 +22,7 @@ data class ExtendedPointMaxColors(
   val backgroundPrimary: Color,
   val backgroundSecondary: Color,
   val backgroundStandard: Color,
+  val backgroundDivider: Color,
 
   val textPrimary: Color,
   val textSecondary: Color,
@@ -36,6 +38,7 @@ val pointMaxColorScheme = ExtendedPointMaxColors(
   backgroundPrimary = PointMaxColors.royalBlue,
   backgroundSecondary = PointMaxColors.gold,
   backgroundStandard = PointMaxColors.lightGray,
+  backgroundDivider = PointMaxColors.lightBlue,
 
   textPrimary = PointMaxColors.darkSlateGray,
   textSecondary = PointMaxColors.dimGray,

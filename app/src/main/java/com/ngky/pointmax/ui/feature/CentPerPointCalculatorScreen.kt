@@ -43,13 +43,14 @@ fun CentPerPointCalculatorScreen(
         modifier = Modifier
           .fillMaxWidth()
           .padding(top = PointMaxTheme.dimensions.padding2)
+          .padding(horizontal = PointMaxTheme.dimensions.padding3)
       )
     }
 
     item {
       HorizontalDivider(
         thickness = PointMaxTheme.dimensions.divider,
-        color = PointMaxTheme.colors.backgroundPrimary,
+        color = PointMaxTheme.colors.backgroundDivider,
         modifier = Modifier.padding(vertical = PointMaxTheme.dimensions.padding2)
       )
     }

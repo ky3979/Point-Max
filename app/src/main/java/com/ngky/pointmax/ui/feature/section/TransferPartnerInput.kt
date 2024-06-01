@@ -9,14 +9,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import com.ngky.pointmax.R
-import com.ngky.pointmax.domain.model.TravelPortalCompany
 import com.ngky.pointmax.ext.PointMaxPreview
 import com.ngky.pointmax.ui.feature.common.DropdownMenu
 import com.ngky.pointmax.ui.feature.common.PointInput

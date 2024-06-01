@@ -2,7 +2,6 @@ package com.ngky.pointmax.ui.feature.section
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
@@ -13,7 +12,6 @@ import androidx.compose.ui.res.stringResource
 import com.ngky.pointmax.R
 import com.ngky.pointmax.ext.PointMaxPreview
 import com.ngky.pointmax.ui.feature.common.PriceInput
-import com.ngky.pointmax.ui.theme.PointMaxTheme
 
 @Composable
 fun CashPriceInput(

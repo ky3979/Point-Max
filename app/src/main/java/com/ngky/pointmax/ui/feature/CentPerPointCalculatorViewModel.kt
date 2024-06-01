@@ -8,8 +8,6 @@ import com.ngky.pointmax.domain.model.TravelPortalCompany
 import com.ngky.pointmax.domain.usecase.GetCentPerPointCalculationsUseCase
 import com.ngky.pointmax.domain.usecase.SaveCentPerPointCalculationUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import java.math.BigDecimal
-import java.math.RoundingMode
 import javax.inject.Inject
 
 @HiltViewModel
