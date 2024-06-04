@@ -47,7 +47,7 @@ fun CentsPerPointResults(
     ) {
       Text(
         text = stringResource(id = R.string.travel_portal),
-        style = PointMaxTheme.typography.header3Bold,
+        style = PointMaxTheme.typography.header2Bold,
         color = travelPortalColor,
         modifier = Modifier.padding(top = PointMaxTheme.dimensions.padding0)
       )
@@ -72,7 +72,7 @@ fun CentsPerPointResults(
     ) {
       Text(
         text = stringResource(id = R.string.transfer_partner),
-        style = PointMaxTheme.typography.header3Bold,
+        style = PointMaxTheme.typography.header2Bold,
         color = transferPartnerColor,
         modifier = Modifier.padding(top = PointMaxTheme.dimensions.padding0)
       )

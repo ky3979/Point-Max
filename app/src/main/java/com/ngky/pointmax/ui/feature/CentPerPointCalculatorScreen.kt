@@ -42,7 +42,7 @@ fun CentPerPointCalculatorScreen(
         transferPartnerCentsPerPoint = uiState.transferPartnerCentsPerPoint,
         modifier = Modifier
           .fillMaxWidth()
-          .padding(top = PointMaxTheme.dimensions.padding2)
+          .padding(top = PointMaxTheme.dimensions.padding4)
           .padding(horizontal = PointMaxTheme.dimensions.padding3)
       )
     }

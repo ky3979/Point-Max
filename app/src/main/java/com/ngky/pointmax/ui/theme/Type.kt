@@ -42,8 +42,8 @@ val pointMaxTypography = ExtendedPointMaxTypography(
   ),
   header2Bold = TextStyle(
     fontWeight = FontWeight.Bold,
-    fontSize = 24.sp,
-    lineHeight = 32.sp,
+    fontSize = 20.sp,
+    lineHeight = 24.sp,
   ),
   header3Bold = TextStyle(
     fontWeight = FontWeight.Bold,
